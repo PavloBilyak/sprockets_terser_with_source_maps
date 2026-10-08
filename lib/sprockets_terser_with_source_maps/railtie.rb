@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require 'action_controller/railtie'
+require 'sprockets/manifest'
+require 'sprockets_terser_with_source_maps/cleanup'
+
+Sprockets::Manifest.prepend(SprocketsTerserWithSourceMaps::ManifestCleanup)
 
 module SprocketsTerserWithSourceMaps
   # Railtie for Rails
